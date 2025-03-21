@@ -1,4 +1,5 @@
 type ActionButtonsProps = {
+  isConnected: Boolean;
   connect: () => void;
   disconnect: () => void;
   resetTransactions: () => void;
@@ -8,11 +9,13 @@ export default function ActionButtons({
   connect,
   disconnect,
   resetTransactions,
+  isConnected,
 }: ActionButtonsProps) {
   return (
     <div className="flex gap-6 justify-center items-center mt-6">
       <button
         onClick={connect}
+        disabled={!!isConnected}
         className="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700">
         Start
       </button>

@@ -29,6 +29,7 @@ export default function Transactions() {
         connect={connect}
         disconnect={disconnect}
         resetTransactions={resetTransactions}
+        isConnected={isConnected}
       />
 
       <div className="mb-6">
