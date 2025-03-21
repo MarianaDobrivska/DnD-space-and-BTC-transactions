@@ -26,7 +26,6 @@ export const useBlocksManager = () => {
 
   useEffect(() => {
     const savedBlocks = localStorage.getItem("workspace-blocks");
-
     if (savedBlocks) {
       setBlocks(JSON.parse(savedBlocks));
     } else {
@@ -45,11 +44,15 @@ export const useBlocksManager = () => {
       id: i + 1,
       x: 10 + i * 30,
       y: 10 + i * 30,
-      width: 100,
+      width: 300,
       height: 100,
       zIndex: i + 1,
       visible: true,
     }));
+  };
+
+  const snapToGrid = (value: number, gridSize = 10) => {
+    return Math.round(value / gridSize) * gridSize;
   };
 
   const handleBlockMouseDown = (
@@ -60,7 +63,6 @@ export const useBlocksManager = () => {
   ) => {
     e.stopPropagation();
     e.preventDefault();
-
     bringToFront(id);
 
     if (action === "drag") {
@@ -90,8 +92,8 @@ export const useBlocksManager = () => {
           if (isDragging.current) {
             return {
               ...block,
-              x: block.x + deltaX,
-              y: block.y + deltaY,
+              x: snapToGrid(block.x + deltaX),
+              y: snapToGrid(block.y + deltaY),
             };
           } else if (isResizing.current) {
             return handleResize(block, deltaX, deltaY);
