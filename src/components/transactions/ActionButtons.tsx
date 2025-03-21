@@ -1,5 +1,5 @@
 type ActionButtonsProps = {
-  isConnected: Boolean;
+  isConnected: boolean;
   connect: () => void;
   disconnect: () => void;
   resetTransactions: () => void;
