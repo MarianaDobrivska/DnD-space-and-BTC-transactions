@@ -24,21 +24,21 @@ export default function TransactionsTable({
         <tbody className="bg-white divide-y divide-gray-200 text-gray-500">
           {transactions.map((tx) => (
             <tr key={tx.hash} className="hover:bg-gray-50">
-              <td className="px-6 py-4 text-sm">
+              <td className="px-6 py-4 text-sm w-1/3">
                 <span
-                  className="truncate block max-w-[120px] sm:max-w-full"
+                  className="truncate block max-w-[200px] "
                   title={tx.fromAddress}>
                   {tx.fromAddress}
                 </span>
               </td>
-              <td className="px-6 py-4 text-sm font-mono">
+              <td className="px-6 py-4 text-sm font-mono w-1/3">
                 <span
-                  className="truncate block max-w-[120px] sm:max-w-full"
+                  className="truncate block max-w-[200px] "
                   title={tx.toAddress}>
                   {tx.toAddress}
                 </span>
               </td>
-              <td className="px-6 py-4 text-sm">{tx.amount}</td>
+              <td className="px-6 py-4 text-sm w-1/3">{tx.amount}</td>
             </tr>
           ))}
         </tbody>

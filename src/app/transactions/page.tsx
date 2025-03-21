@@ -38,7 +38,7 @@ export default function Transactions() {
       <div>
         {transactions.length === 0 && !isConnected ? (
           <div className="text-gray-500 italic">
-            No transactions received yet. Click "Start" to begin.
+            No transactions received yet. Click &quot;Start&quot; to begin.
           </div>
         ) : (
           <>
